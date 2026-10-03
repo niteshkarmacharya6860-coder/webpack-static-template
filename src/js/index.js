@@ -1,3 +1,81 @@
 import '../scss/style.scss'
+import '../scss/responsive.scss'
+// import 'swiper/css';
+import Swiper from 'swiper';
 
-console.log('It works!')
+const sliders = [
+	{
+		container: '.slider__contents',
+		button: '.brands__body .show__more',
+		length: window.innerWidth < 1024 && window.innerWidth > 512 ? 6 : 8
+	},
+	{
+		container: '.repair__contents',
+		button: '.repair__body .show__more',
+		length: window.innerWidth < 1024 && window.innerWidth > 512 ? 3 : 4
+	}
+]
+
+function initswiper() {
+	sliders.forEach(slider => {
+		console.log(slider.container);
+	});
+
+	const swiper = new Swiper('.swiper', {
+		slidesPerView: 1.2,
+		spaceBetween: 15,
+		loop: false,
+		pagination: {
+			el: '.swiper-pagination',
+			clickable: true,
+		},
+	});
+}
+
+function initSlides() {
+
+	sliders.forEach(slider => {
+
+		const slides = document.querySelectorAll(
+			`${slider.container} .swiper-slide`
+		);
+
+		const showMore = document.querySelector(slider.button);
+		const showMoreText = document.querySelector(`${slider.button} span`);
+		const showMoreImg = document.querySelector(`${slider.button} img`);
+
+
+		slides.forEach((item, index) => {
+			item.style.display = index < slider.length ? 'block' : 'none';
+		});
+
+		showMore.addEventListener('click', function (e) {
+			e.preventDefault();
+			console.log(showMoreText);
+
+			const isShowingMore = showMoreText.textContent === 'Show All';
+			slides.forEach((item, index) => {
+				if (index > slider.length) {
+					item.style.display = isShowingMore ? 'block' : 'none'
+				}
+			});
+
+			showMoreText.textContent = isShowingMore ? 'Hide' : 'Show All'
+			showMoreImg.style.transform = isShowingMore ? 'rotate(180deg)' : 'rotate(0deg)'
+		});
+
+	});
+};
+if (window.innerWidth <= 512) {
+	initswiper();
+} else {
+	initSlides();
+}
+
+
+const openMobileMenu = document.querySelector('.logo__with__menu__icon>svg');
+const mobileMenuContainer = document.querySelector('.mobile__menu__container');
+openMobileMenu.addEventListener('click', (e) => {
+	e.preventDefault();
+	mobileMenuContainer.classList.add('open');
+});

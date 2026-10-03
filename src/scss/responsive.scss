@@ -1,0 +1,84 @@
+@media screen and (min-width: 768px) {
+	.header-icons__profile {
+		display: flex;
+		gap: 15px;
+	}
+
+	.service-support__content {
+		display: none;
+	}
+
+	.service-support__menu .service-menu__content .service-menu-content__text p.service-content__text--tablet {
+		display: block;
+		margin-bottom: 10px;
+	}
+
+	.service-content__text--desktop {
+		display: none;
+	}
+
+	.service-support__menu .service-menu__content {
+		flex-direction: row;
+		gap: 40px;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	header {
+		display: none;
+	}
+
+	.service-support__menu ul {
+		text-wrap: wrap;
+	}
+
+	.service-support__content {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding-right: 25px;	
+		gap: 30px;
+	}
+
+	.service-support__menu .service-menu__content .service-menu-content__text p.service-content__text--tablet {
+		display: none;
+	}
+
+	.service-support__menu .service-menu__content .service-menu-content__text p.service-content__text--desktop {
+		display: block;
+		margin-bottom: 10px;
+	}
+
+	.swiper-wrapper {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+@media (min-width: 512px) and (max-width: 1023px) {
+	.swiper-wrapper {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@media screen and (max-width: 512px) {
+	.show__hide__button {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 624px) {
+	.brand__card > img {
+		height: 20px;
+	}
+	
+	.brand__card {
+		padding: 12px 20px;
+	}
+}
+
+@media screen and (min-width: 512px) {
+	.swiper-wrapper {
+		display: grid;
+		gap: 10px;
+	}
+}
