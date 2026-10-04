@@ -1,6 +1,9 @@
 import '../scss/style.scss'
 import '../scss/responsive.scss'
-// import 'swiper/css';
+// import 'swiper/css/bundle';
+import 'swiper/css';
+import { Pagination } from 'swiper/modules';
+import 'swiper/css/pagination';
 import Swiper from 'swiper';
 
 const sliders = [
@@ -16,9 +19,10 @@ const sliders = [
 	}
 ]
 
-function initswiper() {
+function initSwiper() {
 	sliders.forEach(slider => {
-		console.log(slider.container);
+		const swiperContainer = document.querySelector(slider.container);
+		swiperContainer.classList.add('swiper');
 	});
 
 	const swiper = new Swiper('.swiper', {
@@ -63,19 +67,23 @@ function initSlides() {
 			showMoreText.textContent = isShowingMore ? 'Hide' : 'Show All'
 			showMoreImg.style.transform = isShowingMore ? 'rotate(180deg)' : 'rotate(0deg)'
 		});
-
 	});
 };
 if (window.innerWidth <= 512) {
-	initswiper();
+	initSwiper();
 } else {
 	initSlides();
 }
 
 
 const openMobileMenu = document.querySelector('.logo__with__menu__icon>svg');
+const closeMobileMenu = document.querySelector('.mobile__menu__container .close__icon');
 const mobileMenuContainer = document.querySelector('.mobile__menu__container');
 openMobileMenu.addEventListener('click', (e) => {
 	e.preventDefault();
 	mobileMenuContainer.classList.add('open');
+});
+closeMobileMenu.addEventListener('click', (e) => {
+	e.preventDefault();
+	mobileMenuContainer.classList.remove('open');
 });
