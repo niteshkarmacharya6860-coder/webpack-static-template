@@ -1,9 +1,8 @@
-import '../scss/style.scss'
-import '../scss/responsive.scss'
-// import 'swiper/css/bundle';
 import 'swiper/css';
 import { Pagination } from 'swiper/modules';
 import 'swiper/css/pagination';
+import '../scss/style.scss'
+import '../scss/responsive.scss'
 import Swiper from 'swiper';
 
 const sliders = [
@@ -16,6 +15,10 @@ const sliders = [
 		container: '.repair__contents',
 		button: '.repair__body .show__more',
 		length: window.innerWidth < 1024 && window.innerWidth > 512 ? 3 : 4
+	},
+	{
+		container: '.price__contents',
+		length: window.innerWidth < 1024 && window.innerWidth > 512 ? 3 : 4
 	}
 ]
 
@@ -26,6 +29,7 @@ function initSwiper() {
 	});
 
 	const swiper = new Swiper('.swiper', {
+		modules: [Pagination],
 		slidesPerView: 1.2,
 		spaceBetween: 15,
 		loop: false,
@@ -47,7 +51,6 @@ function initSlides() {
 		const showMore = document.querySelector(slider.button);
 		const showMoreText = document.querySelector(`${slider.button} span`);
 		const showMoreImg = document.querySelector(`${slider.button} img`);
-
 
 		slides.forEach((item, index) => {
 			item.style.display = index < slider.length ? 'block' : 'none';
