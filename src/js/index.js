@@ -1,4 +1,4 @@
-import 'swiper/css';
+import 'swiper/css/bundle';
 import { Pagination } from 'swiper/modules';
 import 'swiper/css/pagination';
 import '../scss/style.scss'
@@ -9,16 +9,16 @@ const sliders = [
 	{
 		container: '.slider__contents',
 		button: '.brands__body .show__more',
-		length: window.innerWidth < 1024 && window.innerWidth > 512 ? 6 : 8
+		length: window.innerWidth < 1025 && window.innerWidth > 512 ? 6 : 8
 	},
 	{
 		container: '.repair__contents',
 		button: '.repair__body .show__more',
-		length: window.innerWidth < 1024 && window.innerWidth > 512 ? 3 : 4
+		length: window.innerWidth < 1025 && window.innerWidth > 512 ? 3 : 4
 	},
 	{
 		container: '.price__contents',
-		length: window.innerWidth < 1024 && window.innerWidth > 512 ? 3 : 4
+		length: window.innerWidth < 1025 && window.innerWidth > 512 ? 3 : 4
 	}
 ]
 
@@ -44,6 +44,8 @@ function initSlides() {
 
 	sliders.forEach(slider => {
 
+		console.log(slider.length);
+
 		const slides = document.querySelectorAll(
 			`${slider.container} .swiper-slide`
 		);
@@ -56,13 +58,15 @@ function initSlides() {
 			item.style.display = index < slider.length ? 'block' : 'none';
 		});
 
+		if (!showMore) return;
+
 		showMore.addEventListener('click', function (e) {
 			e.preventDefault();
 			console.log(showMoreText);
 
 			const isShowingMore = showMoreText.textContent === 'Show All';
 			slides.forEach((item, index) => {
-				if (index > slider.length) {
+				if (index >= slider.length) {
 					item.style.display = isShowingMore ? 'block' : 'none'
 				}
 			});
@@ -79,9 +83,9 @@ if (window.innerWidth <= 512) {
 }
 
 
-const openMobileMenu = document.querySelector('.logo__with__menu__icon>svg');
-const closeMobileMenu = document.querySelector('.mobile__menu__container .close__icon');
-const mobileMenuContainer = document.querySelector('.mobile__menu__container');
+let openMobileMenu = document.querySelector('.logo__with__menu__icon>svg');
+let closeMobileMenu = document.querySelector('.mobile__menu__container .close__icon');
+let mobileMenuContainer = document.querySelector('.mobile__menu__container');
 openMobileMenu.addEventListener('click', (e) => {
 	e.preventDefault();
 	mobileMenuContainer.classList.add('open');

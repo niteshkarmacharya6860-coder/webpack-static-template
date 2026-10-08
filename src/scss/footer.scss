@@ -1,0 +1,30 @@
+.terms__body {
+  .terms__proposal {
+    p {
+      padding: 0 20px;
+      display: flex;
+      font-weight: bold;
+      align-items: center;
+      gap: 40px;
+    }
+
+    img {
+      filter: brightness(0) saturate(100%) invert(41%) sepia(96%)
+        saturate(3193%) hue-rotate(319deg) brightness(101%) contrast(102%);
+      width: 10px;
+    }
+  }
+}
+
+footer {
+  margin-top: 100px;
+  font-size: 14px;
+  color: #7e7e82;
+  padding: 20px 0;
+}
+
+footer .general__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

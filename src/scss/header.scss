@@ -1,0 +1,160 @@
+header {
+  display: block;
+  background-color: #fff;
+  .logo__with__menu__icon,
+  .header__icons {
+    display: none;
+  }
+}
+
+.header__icons {
+  display: flex;
+  padding: 0 15px;
+}
+
+.header-icons__profile {
+  display: none;
+  padding-right: 15px;
+}
+
+.header-icons__others {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-left: 1px solid #dadada;
+  padding-left: 15px;
+}
+
+.repair__icon {
+  margin-right: 10px;
+}
+
+.logo__icon {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.close__icon,
+.search__icon,
+.phone__icon,
+.message__icon,
+.profile__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background-color: $primary;
+  border-radius: 50%;
+  padding: 8px;
+  cursor: pointer;
+  opacity: 0.9;
+  transition: all 0.2s ease-in-out;
+}
+
+.close__icon:hover,
+.search__icon:hover,
+.phone__icon:hover,
+.message__icon:hover,
+.profile__icon:hover {
+  background-color: darken($primary, 10%);
+  opacity: 1;
+  transition: all 0.2s ease-in-out;
+}
+
+.close__icon {
+  display: none;
+}
+
+.mobile__menu__container {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+  transform: translateX(0);
+  transition: all 0.3s ease-in-out;
+}
+
+.mobile__menu__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.mobile__menu__container.open {
+  transform: translateX(0);
+  visibility: visible;
+  transition: all 0.3s ease-in-out;
+}
+
+.mobile__logo svg {
+  width: 60px;
+  height: auto;
+}
+
+.mobile__menu ul {
+  padding: 0;
+  li {
+    list-style: none;
+    padding: 5px 20px;
+    margin: 10px 0;
+    a {
+      text-decoration: none;
+      color: $textColor;
+      font-size: 16px;
+      transition: all 0.2s ease-in-out;
+      text-shadow: none;
+      &:hover {
+        font-weight: bold;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+        transition: all 0.2s ease-in-out;
+      }
+    }
+    &.active {
+      border-left: 4px solid $secondary;
+      a {
+        color: #666;
+      }
+    }
+  }
+}
+
+.mobile__menu__footer {
+  padding: 20px;
+}
+
+.mobile__menu__footer__contact {
+  display: flex;
+  gap: 20px;
+}
+
+.mobile__menu__footer__email {
+  margin: 10px 0;
+  a {
+    text-decoration: none;
+    color: $textColor;
+    font-size: 16px;
+  }
+}
+
+.mobile__menu__footer__phone a {
+  text-decoration: none;
+  color: $textColor;
+  font-weight: 900;
+  font-size: 18px;
+}
+
+.mobile__menu__footer__lang {
+  margin-top: 40px;
+  a {
+    text-decoration: none;
+    color: $textColor;
+    font-size: 16px;
+    &:active {
+      color: #666;
+    }
+  }
+}
